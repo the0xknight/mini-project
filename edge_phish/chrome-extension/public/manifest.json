@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "EdgePhish - On-Device Phishing Detector",
+  "version": "1.0.0",
+  "description": "Zero-latency, 100% private in-browser URL phishing detection.",
+  "permissions": [
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}

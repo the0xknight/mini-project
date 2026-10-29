@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "EdgePhish - On-Device Phishing Detector",
+  "version": "1.0.0",
+  "description": "Zero-latency, 100% private in-browser URL phishing detection using WebAssembly and ONNX.",
+  "permissions": [
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/model.onnx", "wasm/*.wasm"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  }
+}

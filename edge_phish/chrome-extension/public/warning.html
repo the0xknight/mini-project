@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Alert: Phishing Site Blocked</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --subtext: #94a3b8;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 12px;
+      max-width: 580px;
+      padding: 32px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--danger);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0 0 12px 0;
+      font-size: 24px;
+    }
+    p {
+      color: var(--subtext);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+    }
+    .url-box {
+      background: #0f172a;
+      border: 1px dashed #475569;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: monospace;
+      color: #38bdf8;
+      word-break: break-all;
+      margin-bottom: 24px;
+      font-size: 13px;
+    }
+    .metrics {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .metric-item {
+      background: #0b1329;
+      padding: 10px 14px;
+      border-radius: 8px;
+      flex: 1;
+    }
+    .metric-label {
+      font-size: 11px;
+      color: var(--subtext);
+      text-transform: uppercase;
+    }
+    .metric-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 4px;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+    button {
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+      border: none;
+      transition: opacity 0.2s;
+    }
+    .btn-safety {
+      background: #3b82f6;
+      color: white;
+      flex: 2;
+    }
+    .btn-bypass {
+      background: transparent;
+      color: var(--subtext);
+      border: 1px solid #475569;
+      flex: 1;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">MALICIOUS SITE BLOCKED</div>
+    <h1>Navigation Terminated by EdgePhish</h1>
+    <p>The on-device classification model flagged this destination URL as a deceptive or typosquatted website attempting credential harvesting.</p>
+    
+    <div class="url-box" id="target-url">Loading...</div>
+
+    <div class="metrics">
+      <div class="metric-item">
+        <div class="metric-label">Phishing Confidence</div>
+        <div class="metric-value" id="risk-score">--%</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-label">Client Verification Time</div>
+        <div class="metric-value" id="inference-time">-- ms</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-safety" id="btn-back">Return to Safety</button>
+      <button class="btn-bypass" id="btn-proceed">Proceed Anyway (Unsafe)</button>
+    </div>
+  </div>
+
+  <script src="/warning.js"></script>
+</body>
+</html>
